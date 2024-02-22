@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="Linq">
+  <DataContextMoniker Name="/LinqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5d523ec3-8849-4698-8bb8-d4f0ecc3cf5c" absoluteBounds="6.25, 0.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/LinqDataContext/admine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8e1f38d-0ffe-4966-a6fb-48946a8e8b4f" absoluteBounds="6.265, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ad4c95f9-385f-437a-b3b4-44d46dc291c7" absoluteBounds="0.75, 5.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/LinqDataContext/ville" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f142ad10-8383-4115-987d-9d00628233de" absoluteBounds="0.765, 6.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0590730-adf0-4ee3-964b-370ca3279851" absoluteBounds="3.5, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LinqDataContext/hopital" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97cb5896-e9e2-462a-bf9b-8dedbf8cdb7e" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2211787f-c60e-4317-a810-84083cfc287a" absoluteBounds="3.5, 6.125, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/LinqDataContext/patient" />
+      <nestedChildShapes>
+        <elementListCompartment Id="458e1453-67fd-4bc1-9c3e-539fa9b9b0b6" absoluteBounds="3.515, 6.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03d6cc81-6ede-4324-99b8-1e77bce502d1" absoluteBounds="6.25, 5.375, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/LinqDataContext/siencevicstint" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc7f8bd1-b510-4c93-a854-df73e38a9322" absoluteBounds="6.265, 5.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dac6bc30-c66e-4434-a92b-4e087a2cdc6a" absoluteBounds="3.5, 1.5, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/LinqDataContext/vicstint" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0892930-339d-4669-81cf-4279193e5d23" absoluteBounds="3.515, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 5.625); (1.75 : 3.31814697265625); (5.91037073157051 : 3.31814697265625 : JumpStart); (6.07703739823718 : 3.31814697265625 : JumpEnd); (6.25 : 3.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/ville/ville_admine" />
+      <nodes>
+        <classShapeMoniker Id="ad4c95f9-385f-437a-b3b4-44d46dc291c7" />
+        <classShapeMoniker Id="5d523ec3-8849-4698-8bb8-d4f0ecc3cf5c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.59780160677083); (5.97916666666667 : 4.59780160677083 : JumpStart); (6.14583333333333 : 4.59780160677083 : JumpEnd); (7.25 : 4.59780160677083); (7.25 : 3.8670068359375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/hopital/hopital_admine" />
+      <nodes>
+        <classShapeMoniker Id="a0590730-adf0-4ee3-964b-370ca3279851" />
+        <classShapeMoniker Id="5d523ec3-8849-4698-8bb8-d4f0ecc3cf5c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 5.625); (2.2812525 : 4.53929768880208); (3.5 : 4.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/ville/ville_hopital" />
+      <nodes>
+        <classShapeMoniker Id="ad4c95f9-385f-437a-b3b4-44d46dc291c7" />
+        <classShapeMoniker Id="a0590730-adf0-4ee3-964b-370ca3279851" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.47199625651042); (3.5 : 6.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/ville/ville_patient" />
+      <nodes>
+        <classShapeMoniker Id="ad4c95f9-385f-437a-b3b4-44d46dc291c7" />
+        <classShapeMoniker Id="2211787f-c60e-4317-a810-84083cfc287a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.32859537760417); (5.875 : 5.70359537760417); (5.875 : 5); (6.00357443490112 : 5.12857443490112 : JumpStart); (6.12142556509888 : 5.24642556509888 : JumpEnd); (6.25 : 5.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LinqDataContext/hopital/hopital_siencevicstint" />
+      <nodes>
+        <classShapeMoniker Id="a0590730-adf0-4ee3-964b-370ca3279851" />
+        <classShapeMoniker Id="03d6cc81-6ede-4324-99b8-1e77bce502d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.63544840494792); (6.25 : 6.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/patient/patient_siencevicstint" />
+      <nodes>
+        <classShapeMoniker Id="2211787f-c60e-4317-a810-84083cfc287a" />
+        <classShapeMoniker Id="03d6cc81-6ede-4324-99b8-1e77bce502d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.8244429077524); (6.0625 : 3.3869429077524); (6.0625 : 6.00522420247396); (6.25 : 6.00522420247396)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/vicstint/vicstint_siencevicstint" />
+      <nodes>
+        <classShapeMoniker Id="dac6bc30-c66e-4434-a92b-4e087a2cdc6a" />
+        <classShapeMoniker Id="03d6cc81-6ede-4324-99b8-1e77bce502d1" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

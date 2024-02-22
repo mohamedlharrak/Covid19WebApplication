@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Covide19DB" Class="LinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=Covide19DB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Covide19DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.admine" Member="admines">
+    <Type Name="admine">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="adresse" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="passworde" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="idville" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idhospitale" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tele" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="contry" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="states" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ville_admine" Member="ville" ThisKey="idville" OtherKey="id" Type="ville" IsForeignKey="true" />
+      <Association Name="hopital_admine" Member="hopital" ThisKey="idhospitale" OtherKey="id" Type="hopital" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ville" Member="villes">
+    <Type Name="ville">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="ville_admine" Member="admines" ThisKey="id" OtherKey="idville" Type="admine" />
+      <Association Name="ville_hopital" Member="hopitals" ThisKey="id" OtherKey="idville" Type="hopital" />
+      <Association Name="ville_patient" Member="patients" ThisKey="id" OtherKey="idville" Type="patient" />
+    </Type>
+  </Table>
+  <Table Name="dbo.hopital" Member="hopitals">
+    <Type Name="hopital">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="idville" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adresse" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="hopital_admine" Member="admines" ThisKey="id" OtherKey="idhospitale" Type="admine" />
+      <Association Name="hopital_siencevicstint" Member="siencevicstints" ThisKey="id" OtherKey="idh" Type="siencevicstint" />
+      <Association Name="ville_hopital" Member="ville" ThisKey="idville" OtherKey="id" Type="ville" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.patient" Member="patients">
+    <Type Name="patient">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="genre" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="telephone" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="dateN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="adresse" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="cin" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="idville" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="patient_siencevicstint" Member="siencevicstints" ThisKey="id" OtherKey="idp" Type="siencevicstint" />
+      <Association Name="ville_patient" Member="ville" ThisKey="idville" OtherKey="id" Type="ville" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.siencevicstint" Member="siencevicstints">
+    <Type Name="siencevicstint">
+      <Column Name="idv" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idp" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idh" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dateDebut" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datefin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="hopital_siencevicstint" Member="hopital" ThisKey="idh" OtherKey="id" Type="hopital" IsForeignKey="true" />
+      <Association Name="patient_siencevicstint" Member="patient" ThisKey="idp" OtherKey="id" Type="patient" IsForeignKey="true" />
+      <Association Name="vicstint_siencevicstint" Member="vicstint" ThisKey="idv" OtherKey="id" Type="vicstint" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vicstint" Member="vicstints">
+    <Type Name="vicstint">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dex" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="vicstint_siencevicstint" Member="siencevicstints" ThisKey="id" OtherKey="idv" Type="siencevicstint" />
+    </Type>
+  </Table>
+</Database>
